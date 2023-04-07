@@ -91,20 +91,29 @@ class SinglyLinkedList {
     let newNode = new Node(val);
     if (index < 0 || index > this.length) return false;
 
-    if (index == 0) {
-      return this.unshift(val);
-    }
+    if (index == 0) return !!this.unshift(val); // !! - to ensure it returns 'true'
 
-    if (index === this.length) {
-      return this.push(val);
-    } else {
-      let prev = this.get(index - 1);
-      let temp = prev.next;
-      prev.next = newNode;
-      newNode.temp = temp;
-    }
+    if (index === this.length) return !!this.push(val);
+
+    let prev = this.get(index - 1);
+    let temp = prev.next;
+    prev.next = newNode;
+    newNode.temp = temp;
+
     this.length++;
     return true;
+  }
+
+  remove(index) {
+    if (index < 0 || index >= this.length) return false;
+    if (index == 0) return this.shift();
+    if (index == this.length - 1) return this.pop();
+
+    let prevNode = this.get(index - 1);
+    let removed = prevNode.next;
+    prevNode.next = removed.next;
+    this.length--;
+    return removed;
   }
 }
 
@@ -115,7 +124,9 @@ list.push("You Ok??");
 list.push("You Good??");
 // list.unshift("Bro!!");
 list.set(2, "Man");
-list.insert(0, 'new guy')
+list.insert(0, "new guy");
+list.remove(0);
+list.remove(3);
 console.log(list.get(0));
 // list.pop()
 // list.pop()
