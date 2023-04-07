@@ -115,6 +115,20 @@ class SinglyLinkedList {
     this.length--;
     return removed;
   }
+
+  print(){
+    var arr = [];
+    var current = this.head
+    while(current){
+        arr.push(current.val)
+        current = current.next
+    }
+    console.log(arr);
+}
+
+  reverse() {
+
+  }
 }
 
 const list = new SinglyLinkedList();
@@ -127,10 +141,11 @@ list.set(2, "Man");
 list.insert(0, "new guy");
 list.remove(0);
 list.remove(3);
-console.log(list.get(0));
+list.print()
+// console.log(list.get(0));
 // list.pop()
 // list.pop()
 // list.pop()
 // list.pop()
 // list.shift();
-console.log(list);
+// console.log(list);
