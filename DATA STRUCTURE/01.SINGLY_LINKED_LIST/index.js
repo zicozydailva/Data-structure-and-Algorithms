@@ -127,7 +127,18 @@ class SinglyLinkedList {
 }
 
   reverse() {
-
+    var node = this.head;
+    this.head = this.tail;
+    this.tail = node;
+    var next;
+    var prev = null;
+    for(var i = 0; i < this.length; i++){
+      next = node.next;
+      node.next = prev;
+      prev = node;
+      node = next;
+    }
+    return this;
   }
 }
 
@@ -141,6 +152,7 @@ list.set(2, "Man");
 list.insert(0, "new guy");
 list.remove(0);
 list.remove(3);
+list.reverse()
 list.print()
 // console.log(list.get(0));
 // list.pop()
