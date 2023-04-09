@@ -117,8 +117,8 @@ class SinglyLinkedList {
   }
 
   print(){
-    var arr = [];
-    var current = this.head
+    let arr = [];
+    let current = this.head
     while(current){
         arr.push(current.val)
         current = current.next
@@ -153,9 +153,9 @@ list.insert(0, "new guy");
 list.remove(0);
 list.remove(3);
 list.reverse()
+console.log(list.get(0));
+list.pop()
 list.print()
-// console.log(list.get(0));
-// list.pop()
 // list.pop()
 // list.pop()
 // list.pop()
