@@ -154,7 +154,7 @@ list.remove(0);
 list.remove(3);
 list.reverse()
 console.log(list.get(0));
-list.pop()
+list.pop() 
 list.print()
 // list.pop()
 // list.pop()
