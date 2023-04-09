@@ -40,6 +40,7 @@ class DoublyLinkedList {
       this.tail.prev = null;
     }
     this.length--;
+    return currentTail;
   }
 }
 
