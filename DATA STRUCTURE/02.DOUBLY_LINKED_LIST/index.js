@@ -28,15 +28,17 @@ class DoublyLinkedList {
   }
 
   pop() {
+    let currentTail = this.tail;
+
     if (!this.tail) return undefined;
     if (this.length == 1) {
       this.head = null;
       this.tail = null;
+    } else {
+      this.tail = currentTail.prev;
+      this.tail.next = null;
+      this.tail.prev = null;
     }
-    let currentTail = this.tail;
-    this.tail = this.tail.prev;
-    currentTail.next = null;
-    currentTail.prev = null;
     this.length--;
   }
 }
